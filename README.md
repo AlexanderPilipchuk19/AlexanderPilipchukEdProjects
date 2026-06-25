@@ -35,3 +35,23 @@
 
 # PetProjectsRepo
 Также можно перейти в мой репо с собственными внеучебными наработками https://github.com/AlexanderPilipchuk19/AlexanderPilipchukPet-Projects
+
+## Сборка и запуск
+1. /mathcs-ca-25-emulator-AlexanderPilipchuk/
+сборка: g++ -std=c++20 -O2 -Wall -Wextra -Wpedantic main.cpp -o riscv_emulator
+запуск: ./riscv_emulator -i task.bin
+запуск с сохранением выходного состояния памяти: ./riscv_emulator -i task.bin -o out.bin 0x1000 0x100
+2. /mathcs-ca-25-optimization-AlexanderPilipchuk/
+сборка: g++ -std=c++20 -O3 -Wall -Wextra -Wpedantic -fopenmp main.cpp hit.cpp -o monte_carlo
+запуск однопоточной реализации: ./monte_carlo --input input.txt --output output.txt --realization 1
+запуск OpenMP-реализации с автоматическим распределением: ./monte_carlo --input input.txt --output output.txt --realization 2 --threads 8 --kind static --chunk_size 100
+запуск OpenMP-реализации с ручным распределением: ./monte_carlo --input input.txt --output output.txt --realization 3 --threads 8 --kind static --chunk_size 100
+3. /bare-x86-AlexanderPilipchuk/
+сборка и запуск: make run
+4. /CompMethodsTask1/
+запуск: julia lab_spline.jl
+запуск с потоками: julia --threads 4 -e 'include("lab_spline.jl"); println("threads = ", Threads.nthreads()); r = run_experiment(x -> sin(2*pi*x); a=0.0, b=1.0, h=0.05, d=2, parallel=true); println("VD error = ", r["err_vd"]); println("Q3 error = ", r["err_q3"])'
+5. /CompMethodsTask3/
+запуск: python3 main.py
+далее путь к bmp файлу
+
